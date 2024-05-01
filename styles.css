@@ -4,6 +4,37 @@
   margin-top: 50px;
 }
 
+#busca-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+#busca-container p {
+  font-size: 25px;
+  font-weight: 500;
+  text-wrap: nowrap;
+}
+
+#busca {
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+  padding: 5px;
+}
+
+#buscar {
+  background-color: #ff0000;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
 header {
   display: flex;
   flex-direction: column;
