@@ -1,4 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
+h1 {
+  font-family: 'Sedgwick Ave Display', cursive;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 50px;
+}
+
 #carregando {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#nao-encontrado {
   font-size: 50px;
   text-align: center;
   margin-top: 50px;
@@ -6,6 +21,7 @@
 
 #busca-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -47,6 +63,7 @@ header {
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
+  padding: 0 20px;
 }
 
 .produto {

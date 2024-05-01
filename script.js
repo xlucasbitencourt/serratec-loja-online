@@ -1,21 +1,36 @@
+// carregando os elementos do HTML
 const produtos = document.getElementById("produtos");
 const carregando = document.getElementById("carregando");
 const busca = document.getElementById("busca");
 const buscar = document.getElementById("buscar");
 
+/**
+ * Função que busca os produtos na API do Mercado Livre
+ * @param {string} search - O termo de busca
+ * @returns {Promise<Array>} - A lista de produtos
+ */
 const fetchProducts = async (search) => {
-  // const search = "computador";
   const url = `https://api.mercadolibre.com/sites/MLB/search?q=${search}`;
   const response = await fetch(url);
   const data = await response.json();
   return data.results;
 };
 
+/**
+ * Função que renderiza os produtos na tela
+ * @param {string} search - O termo de busca
+ * @returns {void}
+ */
 const renderProducts = async (search) => {
+  carregando.style.display = "block";
   if (!search) search = "computador";
-  console.log(search);
   produtos.innerHTML = "";
   const products = await fetchProducts(search);
+  if (products.length === 0) {
+    produtos.innerHTML = `<p id="nao-encontrado">Nenhum produto encontrado!</p>`;
+    carregando.style.display = "none";
+    return;
+  }
   products.forEach((product) => {
     const productElement = document.createElement("div");
     productElement.className = "produto";
@@ -31,12 +46,13 @@ const renderProducts = async (search) => {
     `;
     produtos.appendChild(productElement);
   });
-  carregando.remove();
+  carregando.style.display = "none";
 };
 
-buscar.addEventListener("click", () => renderProducts(busca.value))
+// Evento de clique no botão de busca
+buscar.addEventListener("click", () => renderProducts(busca.value));
 
-window.onload = async() => {
-  console.log(await fetchProducts());
+// Evento de busca ao iniciar a página
+window.onload = async () => {
   renderProducts();
 };
