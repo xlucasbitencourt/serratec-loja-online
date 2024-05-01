@@ -1,4 +1,5 @@
 const produtos = document.getElementById("produtos");
+const carregando = document.getElementById("carregando");
 
 const fetchProducts = async () => {
   const search = "computador";
@@ -20,14 +21,16 @@ const renderProducts = async () => {
         style: "currency",
         currency: "BRL",
       })}</span></p>
-      <p class="frete">${product.shipping.free_shipping ? "Frete grátis!" : ""}</p> 
-      <button class="comprar">Ver mais</button>
+      <p class="frete">${product.shipping.free_shipping ? "Frete grátis!" : ""}</p>
+      <button class="comprar"><a href="/produto.html?${product.id}">Ver mais</a> </button>
     `;
     produtos.appendChild(productElement);
   });
+  carregando.remove();
 };
 
 window.onload = async() => {
   console.log(await fetchProducts());
   renderProducts();
+  console.log(document.URL)
 };
