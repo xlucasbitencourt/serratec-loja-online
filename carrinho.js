@@ -31,8 +31,11 @@ const getCarrinho = () => {
       currency: "BRL",
     });
 
-    const remover = document.createElement("button");
-    remover.innerText = "Remover";
+    const remover = document.createElement("td");
+    remover.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+
+    // const remover = document.createElement("button");
+    // remover.innerText = "Remover";
 
     const tr = document.createElement("tr");
     tr.appendChild(produto);

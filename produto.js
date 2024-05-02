@@ -1,5 +1,6 @@
 const produtoDetalhe = document.getElementById("produto-detalhe");
 const adicionar = document.getElementById("adicionar");
+const quantidadeCarrinho = document.getElementById("quantidade-carrinho");
 
 const getProduct = async (id) => {
   const url = `https://api.mercadolibre.com/items/${id}`;
@@ -69,6 +70,12 @@ const adicionarCarrinho = () => {
 
 adicionar.onclick = adicionarCarrinho;
 
+const getCarrinho = () => {
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  quantidadeCarrinho.innerText = carrinho.length;
+};
+
 window.onload = async () => {
   renderProduct();
+  getCarrinho();
 };

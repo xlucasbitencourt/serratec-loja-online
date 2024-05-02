@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
 
+#icone-carrinho {
+  color: rgb(255, 38, 0);
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
 h1 {
   font-family: 'Sedgwick Ave Display', cursive;
   font-size: 60px;
