@@ -3,6 +3,7 @@ const produtos = document.getElementById("produtos");
 const carregando = document.getElementById("carregando");
 const busca = document.getElementById("busca");
 const buscar = document.getElementById("buscar");
+const quantidadeCarrinho = document.getElementById("quantidade-carrinho");
 
 /**
  * Função que busca os produtos na API do Mercado Livre
@@ -42,11 +43,18 @@ const renderProducts = async (search) => {
         currency: "BRL",
       })}</span></p>
       <p class="frete">${product.shipping.free_shipping ? "Frete grátis!" : ""}</p>
-      <button class="comprar"><a href="/produto.html?${product.id}">Ver mais</a> </button>
+      <button class="comprar"><a href="./produto.html?${
+        product.id
+      }">Ver mais</a> </button>
     `;
     produtos.appendChild(productElement);
   });
   carregando.style.display = "none";
+};
+
+const getCarrinho = () => {
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  quantidadeCarrinho.innerText = carrinho.length;
 };
 
 // Evento de clique no botão de busca
@@ -55,4 +63,5 @@ buscar.addEventListener("click", () => renderProducts(busca.value));
 // Evento de busca ao iniciar a página
 window.onload = async () => {
   renderProducts();
+  getCarrinho();
 };

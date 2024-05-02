@@ -1,8 +1,17 @@
+h6 {
+  display: none;
+}
+
+nav a {
+  color: black;
+}
+
 #produto-detalhe {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
@@ -16,7 +25,7 @@
   font-weight: 700;
 }
 
-.frete {
+#frete {
   color: green;
   font-weight: bolder;
 }
@@ -32,3 +41,4 @@
   gap: 20px;
   align-items: center;
 }
+
