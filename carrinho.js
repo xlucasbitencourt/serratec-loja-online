@@ -20,25 +20,30 @@ const getCarrinho = () => {
 
   carrinho.map((item) => {
     const produto = document.createElement("td");
+    produto.classList.add("item-produto");
     produto.innerText = item.produto;
 
     const valor = document.createElement("td");
+    valor.classList.add("right");
     valor.innerText = Number(item.valor).toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
     });
 
     const quantidade = document.createElement("td");
+    quantidade.classList.add("center");
     quantidade.innerText = item.quantidade;
 
     const valorTotal = document.createElement("td");
+    valorTotal.classList.add("right");
     valorTotal.innerText = (item.quantidade * item.valor).toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
     });
 
     const remover = document.createElement("td");
-    remover.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+    remover.classList.add("center");
+    remover.innerHTML = `<i class="fa-solid fa-trash"></i><span class="id-produto">${item.id}</span>`;
 
     const tr = document.createElement("tr");
     tr.appendChild(produto);
