@@ -1,3 +1,11 @@
+h6 {
+  display: none;
+}
+
+nav a {
+  color: black;
+}
+
 #produto-detalhe {
   display: flex;
   flex-direction: column;

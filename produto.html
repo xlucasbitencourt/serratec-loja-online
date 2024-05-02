@@ -17,6 +17,18 @@
     <h2>A sua loja de conveniência eletrônica</h2>
   </header>
   <div id="produto-detalhe">
+    <h6 id="codigo"></h6>
+    <h2 id="titulo">Título do produto</h2>
+    <img id="imagem" src="https://via.placeholder.com/250" alt="imagem do produto">
+    <div>
+      <p id="preco">Preço: <span>R$ 0,00</span></p>
+      <p id="quantidade">Quantidade disponível: </p>
+    </div>
+    <div>
+      <p id="criacao">Data de criação: ${new Date(product.date_created).toLocaleDateString()}</p>
+      <p id="frete">Frete grátis</p>
+    </div>
+    <button id="adicionar">Adicionar ao carrinho</button>
   </div>
 </body>
 </html>
