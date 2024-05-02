@@ -19,6 +19,9 @@ const renderProduct = async () => {
   const codigo = document.getElementById("codigo");
   codigo.innerText = product.id;
 
+  const valor = document.getElementById("valor");
+  valor.innerText = product.price;
+
   const titulo = document.getElementById("titulo");
   titulo.innerText = product.title;
 
@@ -41,6 +44,30 @@ const renderProduct = async () => {
   const frete = document.getElementById("frete");
   frete.innerText = product.shipping.free_shipping ? "Frete grátis!" : "";
 };
+
+const adicionarCarrinho = () => {
+  let exists = false;
+  const id = document.getElementById("codigo").innerText;
+  const produto = document.getElementById("titulo").innerText;
+  const valor = document.getElementById("valor").innerText;
+  const quantidade = 1;
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  carrinho.forEach((item) => {
+    if (item.id === id) {
+      item.quantidade += quantidade;
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      alert("Produto adicionado ao carrinho!");
+      exists = true;
+      return;
+    }
+  });
+  if (exists) return;
+  carrinho.push({ id, produto, valor, quantidade });
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  alert("Produto adicionado ao carrinho!");
+};
+
+adicionar.onclick = adicionarCarrinho;
 
 window.onload = async () => {
   renderProduct();
