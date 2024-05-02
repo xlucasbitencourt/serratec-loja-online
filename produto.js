@@ -24,7 +24,7 @@ const renderProduct = async () => {
       <p>Data de criação: ${new Date(product.date_created).toLocaleDateString()}</p>
       <p class="frete">${product.shipping.free_shipping ? "Frete grátis!" : ""}</p>
     </div>
-    <button class="comprar">Comprar</button>
+    <button class="comprar"><a href="/carrinho.html?${product.id}">Comprar</a></button>
   `;
   document.body.appendChild(produtoDetalhe);
 };
