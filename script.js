@@ -42,7 +42,7 @@ const renderProducts = async (search) => {
         currency: "BRL",
       })}</span></p>
       <p class="frete">${product.shipping.free_shipping ? "Frete grátis!" : ""}</p>
-      <button class="comprar"><a href="/produto.html?${product.id}">Ver mais</a> </button>
+      <button class="comprar"><a href="./produto.html?${product.id}">Ver mais</a> </button>
     `;
     produtos.appendChild(productElement);
   });
