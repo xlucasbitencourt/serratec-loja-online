@@ -11,6 +11,15 @@
   top: 30px;
 }
 
+.voltar {
+  border: 1px solid var(--cor-principal);
+  border-radius: 10px;
+  padding: 0 10px;
+  color: var(--cor-principal);
+  font-size: 30px;
+  margin: 25px;
+}
+
 h1 {
   font-family: 'Sedgwick Ave Display', cursive;
   font-size: 60px;

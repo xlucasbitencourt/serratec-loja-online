@@ -8,15 +8,25 @@ const limpar = document.getElementById("limpar");
  * @returns {Promise<Array>} - A lista de produtos
  */
 const getCarrinho = () => {
+  listaCarrinho.innerHTML = "";
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-  console.log(carrinho);
-  total.innerText = carrinho.reduce((acc, item) => {
-    acc += item.valor * item.quantidade;
-    return acc;
-  }, 0).toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
+  if (carrinho.length === 0) {
+    listaCarrinho.innerHTML = `
+    <tr>
+      <td colspan="5" id="vazio">Seu carrinho está vazio!</td>
+    </tr>
+    `;
+    return;
+  }
+  total.innerText = carrinho
+    .reduce((acc, item) => {
+      acc += item.valor * item.quantidade;
+      return acc;
+    }, 0)
+    .toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
 
   carrinho.map((item) => {
     const produto = document.createElement("td");
@@ -43,7 +53,15 @@ const getCarrinho = () => {
 
     const remover = document.createElement("td");
     remover.classList.add("center");
-    remover.innerHTML = `<i class="fa-solid fa-trash"></i><span class="id-produto">${item.id}</span>`;
+    remover.classList.add("remover");
+    remover.addEventListener("click", (e) => {
+      const id = e.target.previousElementSibling.innerText;
+      const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      const newCarrinho = carrinho.filter((item) => item.id !== id);
+      localStorage.setItem("carrinho", JSON.stringify(newCarrinho));
+      getCarrinho();
+    });
+    remover.innerHTML = `<span class="id-produto">${item.id}</span><i class="fa-solid fa-trash"></i>`;
 
     const tr = document.createElement("tr");
     tr.appendChild(produto);
@@ -62,9 +80,9 @@ const getCarrinho = () => {
 limpar.onclick = () => {
   localStorage.removeItem("carrinho");
   listaCarrinho.innerHTML = `
-  <div>
-    <p id="vazio">Seu carrinho está vazio!</p>
-  </div>
+  <tr>
+    <td colspan="5" id="vazio">Seu carrinho está vazio!</td>
+  </tr>
   `;
   total.innerText = "R$ 0,00";
 };
