@@ -1,6 +1,7 @@
 const listaCarrinho = document.getElementById("lista-carrinho");
 const total = document.getElementById("total");
 const limpar = document.getElementById("limpar");
+const finalizar = document.getElementById("finalizar");
 
 /**
  * Função que busca os produtos na API do Mercado Livre
@@ -11,11 +12,13 @@ const getCarrinho = () => {
   listaCarrinho.innerHTML = "";
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   if (carrinho.length === 0) {
+    console.log(finalizar);
     listaCarrinho.innerHTML = `
     <tr>
       <td colspan="5" id="vazio">Seu carrinho está vazio!</td>
     </tr>
     `;
+    finalizar.disabled = true;
     return;
   }
   total.innerText = carrinho
@@ -85,7 +88,12 @@ limpar.onclick = () => {
   </tr>
   `;
   total.innerText = "R$ 0,00";
+  finalizar.disabled = true;
 };
+
+finalizar.onclick = () => {
+  window.location.href = "./checkout.html";
+}
 
 window.onload = () => {
   getCarrinho();
