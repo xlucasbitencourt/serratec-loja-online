@@ -1,10 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
 
+:root {
+  --cor-principal: #a80000;
+}
+
 #icone-carrinho {
-  color: rgb(255, 38, 0);
+  color: var(--cor-principal);
   position: absolute;
   right: 30px;
   top: 30px;
+}
+
+.voltar {
+  border: 1px solid var(--cor-principal);
+  border-radius: 10px;
+  padding: 0 10px;
+  color: var(--cor-principal);
+  font-size: 30px;
+  margin: 25px;
 }
 
 h1 {
@@ -49,7 +62,7 @@ h1 {
 }
 
 #buscar {
-  background-color: #ff0000;
+  background-color: var(--cor-principal);
   color: white;
   font-size: 20px;
   border: none;
@@ -73,10 +86,11 @@ header {
 #produtos {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   padding: 0 20px;
-  height: 60dvh;
+  height: 70dvh;
   overflow-y: auto;
 }
 
@@ -95,7 +109,7 @@ header {
 }
 
 .produto:hover {
-  border: 3px solid #ff0000;
+  border: 3px solid var(--cor-principal);
 }
 
 .produto h3 {
@@ -120,7 +134,7 @@ header {
 
 span {
   font-size: 25px;
-  color: #ff0000;
+  color: var(--cor-principal);
 }
 
 a {
@@ -129,7 +143,7 @@ a {
 }
 
 button {
-  background-color: #ff0000;
+  background-color: var(--cor-principal);
   color: white;
   font-size: 20px;
   border: none;
@@ -144,11 +158,15 @@ button:hover {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ff0000;
+  display: fixed;
+  background-color: var(--cor-principal);
   color: white;
-  height: 100px;
+  height: 80px;
   font-size: 20px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+footer p {
+  text-align: center;
 }

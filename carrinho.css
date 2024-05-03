@@ -6,3 +6,40 @@
     margin-top: 50px;
     gap: 10px;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+#container-table {
+    width: 80%;
+    overflow-x: auto;
+}
+
+#container-table p {
+    font-size: 20px;
+    font-weight: 700;
+    position: fixed;
+    right: 300px;
+}
+
+.item-produto {
+    text-wrap: nowrap;
+}
+
+.id-produto {
+    display: none;
+}
+
+.center, th {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: 700;
+}

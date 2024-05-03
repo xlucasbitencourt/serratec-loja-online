@@ -65,6 +65,7 @@ const adicionarCarrinho = () => {
   if (exists) return;
   carrinho.push({ id, produto, valor, quantidade });
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  getCarrinho();
   alert("Produto adicionado ao carrinho!");
 };
 
