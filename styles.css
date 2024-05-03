@@ -152,11 +152,12 @@ footer {
   display: fixed;
   background-color: var(--cor-principal);
   color: white;
-  height: 50px;
+  height: 80px;
   font-size: 20px;
+  padding: 20px;
+  margin-top: 10px;
 }
 
 footer p {
   text-align: center;
-  margin-top: 20px;
 }

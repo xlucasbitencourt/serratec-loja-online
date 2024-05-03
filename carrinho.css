@@ -19,8 +19,8 @@ table {
 #container-table p {
     font-size: 20px;
     font-weight: 700;
-    text-align: right;
-    margin-right: 10%;
+    position: fixed;
+    right: 300px;
 }
 
 .item-produto {
@@ -37,4 +37,9 @@ table {
 
 .right {
     text-align: right;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: 700;
 }
